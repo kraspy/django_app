@@ -1,0 +1,1 @@
+# This app created to learning Django framework
