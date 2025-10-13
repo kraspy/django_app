@@ -1,7 +1,7 @@
 [project]
 name = "django-app"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is my first Django App"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
@@ -13,3 +13,24 @@ dev = [
     "mypy>=1.18.2",
     "psycopg2-binary>=2.9.11",
 ]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".vscode",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+]
+line-length = 79
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = []
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
