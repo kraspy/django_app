@@ -6,6 +6,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: assist_db
+      POSTGRES_DB: django_app_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
