@@ -47,5 +47,8 @@ class Category(models.Model):
     slug = models.SlugField(max_length=30)
     description = models.TextField(blank=True, default='')
 
+    class Meta:
+        ordering = ['pk']
+
     def __repr__(self) -> str:
         return f'{super().__class__.__name__}(name={self.name!r})'
