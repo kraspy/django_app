@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.name }}{{ block.super }}{% endblock title %}
+{% block title %}
+  {{ product.name }}{{ block.super }}
+{% endblock %}
 
 {% block content %}
-  <div class="mx-auto max-w-2xl mt-3 text-gray-300">
+  <div class="mx-auto max-w-2xl mt-3 pb-4 text-gray-300">
     <h1 class="text-2xl pb-4">{{ product.name }}</h1>
     <div class="my-6">
       <h2>Product price</h2>
@@ -11,9 +13,16 @@
     </div>
     {% if product.description %}
       <div>
-        <h3>Description</h3>
+        <h3 class="text-xl">Description</h3>
         <p class="text-base text-gray-300">{{ product.description }}</p>
       </div>
     {% endif %}
+    <form action="{% url 'store:edit_product' product.pk %}" method="post" class='border-t border-white/10 mt-4 pt-4'>
+      {% csrf_token %}
+      <div class="flex items-center gap-x-6">
+        <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold">Edit</button>
+        <a href="{% url 'store:remove_product' product.pk %}" type="button" class="rounded-md bg-orange-800 px-3 py-2 text-sm font-semibold">Remove</a>
+      </div>
+    </form>
   </div>
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Edit Product "{{ product.name }}"{{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <form method="post" class="my-4 mx-auto max-w-2xl">
+    {% csrf_token %}
+    <div class="mt-4 pb-4 border-b border-white/10">
+      <h2 class="font-semibold text-white mb-4">Edit product</h2>
+      {{ form }}
+    </div>
+    <div class="mt-6 flex items-center gap-x-6">
+      <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Save</button>
+      <a href="{% url 'store:product' product.pk %}" class="text-sm/6 font-semibold text-white">Cancel</button>
+    </div>
+  </form>
+{% endblock %}
+

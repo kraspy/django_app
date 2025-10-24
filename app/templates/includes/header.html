@@ -10,7 +10,7 @@
     <div class="hidden lg:flex lg:gap-x-12">
         <a href="{% url "store:index" %}" class="text-sm/6 font-semibold text-white">🏠</a>
         <a href="{% url "store:products" %}" class="text-sm/6 font-semibold text-white">Our Products</a>
-        <a href="#" class="text-sm/6 font-semibold text-white">Add New Product</a>
+        <a href="{% url 'store:add_product' %}" class="text-sm/6 font-semibold text-white">Add New Product</a>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>

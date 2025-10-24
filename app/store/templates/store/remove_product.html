@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Remove "{{ product.name }}"{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<form method="post" class="my-4 mx-auto max-w-2xl">
+  {% csrf_token %}
+  <div class="mt-4 pb-4 border-b border-white/10">
+    <h2 class="font-semibold text-white mb-4">Remove Product "{{ product.name }}"</h2>
+    <div class="flex items-center gap-2">
+      <div class="group grid size-4 grid-cols-1">
+        {{ form.confirm.as_widget }}
+        <svg viewBox="0 0 14 14" fill="none" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-white/25">
+          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100" />
+          <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-indeterminate:opacity-100" />
+        </svg>
+      </div>
+      <label for="confirm" class="text-base text-gray-300">{{ form.confirm.label }}</label>
+    </div>
+    {% if form.confirm.errors %}
+      <p class="text-sm text-red-600">{{ form.confirm.errors.0 }}</p>
+    {% endif %}
+  </div>
+  <div class="mt-6 flex items-center gap-x-6">
+    <button type="submit" class="rounded-md bg-orange-800 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-orange-800">REMOVE</button>
+    <a href="{% url 'store:product' product.pk %}" class="text-sm/6 font-semibold text-white">Cancel</a>
+  </div>
+</form>
+
+{% endblock %}

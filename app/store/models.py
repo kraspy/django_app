@@ -52,3 +52,6 @@ class Category(models.Model):
 
     def __repr__(self) -> str:
         return f'{super().__class__.__name__}(name={self.name!r})'
+
+    def __str__(self) -> str:
+        return self.name
