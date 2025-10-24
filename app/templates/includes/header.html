@@ -1,0 +1,19 @@
+<header class="bg-gray-900">
+    <nav class="flex items-center justify-between p-6 lg:px-8">
+    <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+        <span class="sr-only">Django Shop App</span>
+        <img src="" alt=""
+            class="h-8 w-auto" />
+        </a>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12">
+        <a href="{% url "store:index" %}" class="text-sm/6 font-semibold text-white">🏠</a>
+        <a href="{% url "store:products" %}" class="text-sm/6 font-semibold text-white">Our Products</a>
+        <a href="#" class="text-sm/6 font-semibold text-white">Add New Product</a>
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    </nav>
+</header>
