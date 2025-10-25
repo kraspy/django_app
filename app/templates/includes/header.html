@@ -1,19 +1,16 @@
 <header class="bg-gray-900">
-    <nav class="flex items-center justify-between p-6 lg:px-8">
-    <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
-        <span class="sr-only">Django Shop App</span>
-        <img src="" alt=""
-            class="h-8 w-auto" />
-        </a>
+  <nav class="flex items-center justify-around p-6 px-8 text-white">
+    <div class="flex gap-x-10">
+      <a href="{% url 'store:index' %}" class="text-sm/6 font-semibold">🏠</a>
+      <a href="{% url 'store:products' %}" class="text-sm/6 font-semibold">Our Products</a>
+      <a href="{% url 'store:add_product' %}" class="text-sm/6 font-semibold">Add New Product</a>
     </div>
-    <div class="hidden lg:flex lg:gap-x-12">
-        <a href="{% url "store:index" %}" class="text-sm/6 font-semibold text-white">🏠</a>
-        <a href="{% url "store:products" %}" class="text-sm/6 font-semibold text-white">Our Products</a>
-        <a href="{% url 'store:add_product' %}" class="text-sm/6 font-semibold text-white">Add New Product</a>
+    <div class="">
+      {% if request.user.is_authenticated %}
+        Welcome, {{ request.user.username }}! <a href="{% url 'admin:index' %}" class="text-xs text-blue-300">Admin Panel</a>
+      {% else %}
+        <a href="{% url 'admin:index' %}" class="text-xs text-blue-300">Admin Panel</a>
+      {% endif %}
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
-    </div>
-    </nav>
+  </nav>
 </header>
