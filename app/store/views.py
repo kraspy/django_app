@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import AddProductForm, RemoveProductForm
@@ -10,8 +11,14 @@ def page_index(request):
 
 
 def products(request):
+    products = Product.objects.all()
+    paginator = Paginator(products, 8)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
-        'products': Product.objects.all(),
+        'page_obj': page_obj,
     }
 
     return render(request, 'store/products.html', context)
