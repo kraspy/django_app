@@ -17,7 +17,7 @@
         <p class="text-base text-gray-300">{{ product.description }}</p>
       </div>
     {% endif %}
-    <form action="{% url 'store:edit_product' product.pk %}" method="post" class='border-t border-white/10 mt-4 pt-4'>
+    <form action="{% url 'store:edit_product' product.pk %}" method="get" class='border-t border-white/10 mt-4 pt-4'>
       {% csrf_token %}
       <div class="flex items-center gap-x-6">
         <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold">Edit</button>
