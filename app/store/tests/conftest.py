@@ -2,7 +2,7 @@ from random import randint
 
 import pytest
 
-from store.models import Product
+from store.models import Category, Product
 
 
 @pytest.fixture
@@ -16,3 +16,12 @@ def products():
         )
         for i in range(10)
     ]
+
+
+@pytest.fixture
+def category_1():
+    return Category.objects.create(
+        name='Category1',
+        slug='cat-1',
+        description='description for category 1',
+    )
