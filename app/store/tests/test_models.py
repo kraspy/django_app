@@ -21,3 +21,18 @@ def test_category_fields(category_1):
     assert category_1.name == 'Category1'
     assert category_1.slug == 'cat-1'
     assert category_1.description == 'description for category 1'
+
+
+@pytest.mark.django_db
+def test_update_category(category_1):
+    category_1.name = 'New Category Name'
+    category_1.save()
+
+    assert category_1.name == 'New Category Name'
+
+
+@pytest.mark.django_db
+def test_delete_category(category_1):
+    category_1.delete()
+
+    assert Category.objects.count() == 0
