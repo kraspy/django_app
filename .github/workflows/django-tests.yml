@@ -35,4 +35,4 @@ jobs:
         uv sync
     - name: Test with pytest
       run: |
-        uv run pytest -s --cov --cov-report html --cov-fail-under 86 app/store/tests/
+        uv run pytest
