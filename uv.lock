@@ -92,8 +92,6 @@ dependencies = [
 dev = [
     { name = "mypy" },
     { name = "psycopg2-binary" },
-]
-test = [
     { name = "pytest" },
     { name = "pytest-django" },
 ]
@@ -110,8 +108,6 @@ requires-dist = [
 dev = [
     { name = "mypy", specifier = ">=1.18.2" },
     { name = "psycopg2-binary", specifier = ">=2.9.11" },
-]
-test = [
     { name = "pytest", specifier = ">=8.4.2" },
     { name = "pytest-django", specifier = ">=4.11.1" },
 ]
