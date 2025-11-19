@@ -8,6 +8,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DJANGO_SETTINGS_MODULE: config.settings
     services:
       postgres:
         image: postgres:17-alpine
@@ -35,4 +37,4 @@ jobs:
         uv sync
     - name: Test with pytest
       run: |
-        uv run pytest
+        uv run pytest app
