@@ -9,6 +9,8 @@ dependencies = [
     "django>=5.2.7",
     "faker>=37.11.0",
     "ipython>=9.6.0",
+    "celery>=5.4.0",
+    "redis>=5.0.0",
 ]
 
 [dependency-groups]
